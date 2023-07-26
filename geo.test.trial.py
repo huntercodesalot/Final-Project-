@@ -11,6 +11,7 @@ def plot_circle(radius):
     plt.xlabel("X-axis")
     plt.ylabel("Y-axis")
     plt.grid(True)
+    plt.text(0, -radius, "Circle's radius: {:.2f}".format(radius), fontsize=12, ha='center')
     plt.show()
 
 def plot_triangle(vertices):
@@ -33,6 +34,7 @@ def plot_rectangle(length, width):
     plt.xlabel("X-axis")
     plt.ylabel("Y-axis")
     plt.grid(True)
+    plt.text(length/2, width/2, "Length: {:.2f}\nWidth: {:.2f}".format(length, width), fontsize=12, ha='center')
     plt.show()
 
 def plot_square(side):
@@ -44,6 +46,7 @@ def plot_square(side):
     plt.xlabel("X-axis")
     plt.ylabel("Y-axis")
     plt.grid(True)
+    plt.text(side/2, side/2, "Side Length: {:.2f}".format(side), fontsize=12, ha='center')
     plt.show()
 
 def plot_parallelogram(base, height):
@@ -55,6 +58,7 @@ def plot_parallelogram(base, height):
     plt.xlabel("X-axis")
     plt.ylabel("Y-axis")
     plt.grid(True)
+    plt.text(base/2 + height/2, height/2, "Base: {:.2f}\nHeight: {:.2f}".format(base, height), fontsize=12, ha='center')
     plt.show()
 
 def plot_trapezoid(base1, base2, height):
@@ -66,16 +70,17 @@ def plot_trapezoid(base1, base2, height):
     plt.xlabel("X-axis")
     plt.ylabel("Y-axis")
     plt.grid(True)
+    plt.text(base1/2, height/2, "Base 1: {:.2f}\nBase 2: {:.2f}\nHeight: {:.2f}".format(base1, base2, height), fontsize=12, ha='center')
     plt.show()
 
 def calc_circle():
-    measure = input("Do you want to calculate the circumference or the area of the circle? ")
-    if measure.lower() == 'circumference':
+    measure = input("Do you want to calculate the circumference or the area of the circle? ").lower()
+    if measure == 'circumference':
         radius = float(input("Enter the radius: "))
         circumference = 2 * np.pi * radius
         print("The circumference of the circle is:", circumference)
         plot_circle(radius)
-    elif measure.lower() == 'area':
+    elif measure == 'area':
         radius = float(input("Enter the radius: "))
         area = np.pi * radius ** 2
         print("The area of the circle is:", area)
@@ -84,8 +89,8 @@ def calc_circle():
         print("Invalid measure choice. Please try again.")
 
 def calc_triangle():
-    measure = input("Do you want to calculate the perimeter or the area of the triangle? ")
-    if measure.lower() == 'perimeter':
+    measure = input("Do you want to calculate the perimeter or the area of the triangle? ").lower()
+    if measure == 'perimeter':
         side1 = float(input("Enter the length of side 1: "))
         side2 = float(input("Enter the length of side 2: "))
         side3 = float(input("Enter the length of side 3: "))
@@ -93,7 +98,7 @@ def calc_triangle():
         print("The perimeter of the triangle is:", perimeter)
         vertices = [(0, 0), (side1, 0), (side2, side3)]
         plot_triangle(vertices)
-    elif measure.lower() == 'area':
+    elif measure == 'area':
         base = float(input("Enter the length of the base: "))
         height = float(input("Enter the height: "))
         area = 0.5 * base * height
@@ -104,14 +109,14 @@ def calc_triangle():
         print("Invalid measure choice. Please try again.")
 
 def calc_rectangle():
-    measure = input("Do you want to calculate the perimeter or the area of the rectangle? ")
-    if measure.lower() == 'perimeter':
+    measure = input("Do you want to calculate the perimeter or the area of the rectangle? ").lower()
+    if measure == 'perimeter':
         length = float(input("Enter the length: "))
         width = float(input("Enter the width: "))
         perimeter = 2 * (length + width)
         print("The perimeter of the rectangle is:", perimeter)
         plot_rectangle(length, width)
-    elif measure.lower() == 'area':
+    elif measure == 'area':
         length = float(input("Enter the length: "))
         width = float(input("Enter the width: "))
         area = length * width
@@ -121,13 +126,13 @@ def calc_rectangle():
         print("Invalid measure choice. Please try again.")
 
 def calc_square():
-    measure = input("Do you want to calculate the perimeter or the area of the square? ")
-    if measure.lower() == 'perimeter':
+    measure = input("Do you want to calculate the perimeter or the area of the square? ").lower()
+    if measure == 'perimeter':
         side = float(input("Enter the side length: "))
         perimeter = 4 * side
         print("The perimeter of the square is:", perimeter)
         plot_square(side)
-    elif measure.lower() == 'area':
+    elif measure == 'area':
         side = float(input("Enter the side length: "))
         area = side ** 2
         print("The area of the square is:", area)
@@ -136,14 +141,14 @@ def calc_square():
         print("Invalid measure choice. Please try again.")
 
 def calc_parallelogram():
-    measure = input("Do you want to calculate the perimeter or the area of the parallelogram? ")
-    if measure.lower() == 'perimeter':
+    measure = input("Do you want to calculate the perimeter or the area of the parallelogram? ").lower()
+    if measure == 'perimeter':
         base = float(input("Enter the base length: "))
         height = float(input("Enter the height: "))
         perimeter = 2 * (base + height)
         print("The perimeter of the parallelogram is:", perimeter)
         plot_parallelogram(base, height)
-    elif measure.lower() == 'area':
+    elif measure == 'area':
         base = float(input("Enter the base length: "))
         height = float(input("Enter the height: "))
         area = base * height
@@ -153,15 +158,15 @@ def calc_parallelogram():
         print("Invalid measure choice. Please try again.")
 
 def calc_trapezoid():
-    measure = input("Do you want to calculate the perimeter or the area of the trapezoid? ")
-    if measure.lower() == 'perimeter':
+    measure = input("Do you want to calculate the perimeter or the area of the trapezoid? ").lower()
+    if measure == 'perimeter':
         base1 = float(input("Enter the length of base 1: "))
         base2 = float(input("Enter the length of base 2: "))
         height = float(input("Enter the height: "))
         perimeter = base1 + base2 + 2 * height
         print("The perimeter of the trapezoid is:", perimeter)
         plot_trapezoid(base1, base2, height)
-    elif measure.lower() == 'area':
+    elif measure == 'area':
         base1 = float(input("Enter the length of base 1: "))
         base2 = float(input("Enter the length of base 2: "))
         height = float(input("Enter the height: "))
@@ -189,25 +194,18 @@ def main():
             break
         elif choice == "1":
             calc_circle()
-            plt.close()  # Close the plot window after displaying the graph
         elif choice == "2":
             calc_triangle()
-            plt.close()  # Close the plot window after displaying the graph
         elif choice == "3":
             calc_rectangle()
-            plt.close()  # Close the plot window after displaying the graph
         elif choice == "4":
             calc_square()
-            plt.close()  # Close the plot window after displaying the graph
         elif choice == "5":
             calc_parallelogram()
-            plt.close()  # Close the plot window after displaying the graph
         elif choice == "6":
             calc_trapezoid()
-            plt.close()  # Close the plot window after displaying the graph
         else:
             print("Invalid choice. Please try again.")
 
 if __name__ == "__main__":
     main()
-
